@@ -1,0 +1,16 @@
+Nepali Calendar Gnome Panel Applet
+----------------------------------
+
+Displays current date in Gnome Panel.
+
+
+INSTALLATION
+------------
+$ sudo ./install.sh
+
+
+USAGE
+-----
+- Right-click Gnome Panel
+- Add to Panel
+- Choose Nepali Calendar and click Add
