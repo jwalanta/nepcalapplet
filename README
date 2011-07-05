@@ -8,6 +8,9 @@ INSTALLATION
 ------------
 Download the tarball: https://github.com/jwalanta/nepcalapplet/tarball/master
 
+Install python-gnomeapplet:
+$ sudo apt-get install python-gnomeapplet
+
 $ chmod a+x install.sh
 $ sudo ./install.sh
 

@@ -7,15 +7,7 @@ pygtk.require('2.0')
 import sys
 import gtk, gtk.gdk, gobject
 import gnomeapplet
-import dbus
 import datetime
-
-bus=dbus.SystemBus()
-hal_obj = bus.get_object ('org.freedesktop.Hal', '/org/freedesktop/Hal/Manager')
-hal = dbus.Interface (hal_obj, 'org.freedesktop.Hal.Manager')
-udis = hal.FindDeviceByCapability ('battery')
-dev_obj = bus.get_object ('org.freedesktop.Hal', udis[0])
-dev = dbus.Interface (dev_obj, 'org.freedesktop.Hal.Device')
 
 ### BEGIN LICENSE
 # Copyright (C) 2011 Shritesh Bhattarai shriteshb@gmail.com
@@ -354,6 +346,6 @@ if len(sys.argv) == 2 and sys.argv[1] == "run-in-window":
 
 gnomeapplet.bonobo_factory("OAFIID:GNOME_PythonPanelApplet_Factory", 
                                 gnomeapplet.Applet.__gtype__, 
-                                "hello", "0", sample_factory)
+                                "nepcalapplet", "0", sample_factory)
 
 
