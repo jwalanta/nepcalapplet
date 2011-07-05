@@ -6,6 +6,9 @@ Displays current Nepali date in Gnome Panel.
 
 INSTALLATION
 ------------
+Download the tarball: https://github.com/jwalanta/nepcalapplet/tarball/master
+
+$ chmod a+x install.sh
 $ sudo ./install.sh
 
 
