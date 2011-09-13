@@ -34,8 +34,8 @@ class NepaliDateConverter:
     print converter.bs2ad((2052,05,27))
     
     Range:
-    1944 A.D. to 2033 A.D.
-    2000 B.S. to 2089 B.S.
+    1944/4/1 A.D. to 2043/4/13 A.D.
+    2000/9/17 B.S. to 2099/12/20 B.S.
     
     bs : a dictionary that contains the number of days in each month of the B.S. year
     bs_equiv, ad_equiv  : The B.S. and A.D. equivalent dates for counting and calculation
@@ -136,6 +136,15 @@ class NepaliDateConverter:
     bs[2088]=(30,31,32,32,30,31,30,30,29,30,30,30)
     bs[2089]=(30,32,31,32,31,30,30,30,29,30,30,30)
     bs[2090]=(30,32,31,32,31,30,30,30,29,30,30,30)
+    bs[2091]=(31,31,32,31,31,31,30,30,29,30,30,30)
+    bs[2092]=(30,31,32,32,31,30,30,30,29,30,30,30)
+    bs[2093]=(30,32,31,32,31,30,30,30,29,30,30,30)
+    bs[2094]=(31,31,32,31,31,30,30,30,29,30,30,30)
+    bs[2095]=(31,31,32,31,31,31,30,29,30,30,30,30)
+    bs[2096]=(30,31,32,32,31,30,30,29,30,29,30,30)
+    bs[2097]=(31,32,31,32,31,30,30,30,29,30,30,30)
+    bs[2098]=(31,31,32,31,31,31,29,30,29,30,29,31)
+    bs[2099]=(31,31,32,31,31,31,30,29,29,30,30,30)
     
     def date_from_tuple(self,tuple_to_convert):
         '''
@@ -269,11 +278,14 @@ class NepaliDateConverter:
               
         '''
         (year, month, day) = bs_date
-        if year < 2000 or year > 2089 or month < 1 or month > 12 or day < 1 or day > 32:
+        if year < 2000 or year > 2099 or month < 1 or month > 12 or day < 1 or day > 32:
             return None
         else:
-            date_delta = self.count_bs_days(self.bs_equiv, bs_date)
-            return self.add_ad_days(self.ad_equiv, date_delta)
+            if year == 2000 and month == 9 and day < 17:
+                return None
+            else:
+                date_delta = self.count_bs_days(self.bs_equiv, bs_date)
+                return self.add_ad_days(self.ad_equiv, date_delta)
     
     def ad2bs(self,ad_date):
         '''
@@ -282,11 +294,14 @@ class NepaliDateConverter:
         bs_date : An tuple in the format (year,month,day)
         '''
         (year, month, day) = ad_date
-        if year < 1944 or year > 2033 or month < 1 or month > 12 or day < 1 or day > 31:
+        if year < 1944 or year > 2043 or month < 1 or month > 12 or day < 1 or day > 31:
             return None
         else:
-            date_delta = self.count_ad_days(self.ad_equiv, ad_date)
-            return self.add_bs_days(self.bs_equiv, date_delta)
+            if year == 2043 and month == 4 and day > 13:
+                return None
+            else:
+                date_delta = self.count_ad_days(self.ad_equiv, ad_date)
+                return self.add_bs_days(self.bs_equiv, date_delta)
 
 def eng2nepnum(n):
     nums = {"0":"०","1":"१","2":"२","3":"३","4":"४","5":"५","6":"६","7":"७","8":"८","9":"९"}
