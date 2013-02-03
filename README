@@ -1,12 +1,12 @@
-Nepali Calendar Gnome Panel Applet
+Nepali Calendar 
 ----------------------------------
-
-Displays current Nepali date in Gnome Panel.
+Displays current Nepali date in Gnome Panel or Application Indicator Notification.
 
 
 INSTALLATION
 ------------
-Download the tarball: https://github.com/jwalanta/nepcalapplet/tarball/master
+# For Gnome panel applet:
+# Download the tarball: https://github.com/jwalanta/nepcalapplet/tarball/master
 
 Install python-gnomeapplet:
 $ sudo apt-get install python-gnomeapplet
@@ -17,6 +17,7 @@ $ sudo ./install.sh
 
 USAGE
 -----
+For Gnome panel applet
 - Right-click Gnome Panel
 - Add to Panel
 - Choose Nepali Calendar and click Add
