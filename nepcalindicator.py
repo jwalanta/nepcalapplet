@@ -4,7 +4,7 @@ import sys
 import datetime
 import gtk
 import appindicator
-
+import os
 
 ### BEGIN LICENSE
 # Copyright (C) 2011 Shritesh Bhattarai shriteshb@gmail.com
@@ -325,7 +325,7 @@ class PyApplet(object):
         """
         Constructor
         """
-        ind = appindicator.Indicator ("nepcalindicator","",appindicator.CATEGORY_SYSTEM_SERVICES)
+        ind = appindicator.Indicator ("nepcalindicator",os.path.abspath('nepalflag.png'), appindicator.CATEGORY_SYSTEM_SERVICES)
         ind.set_status (appindicator.STATUS_ACTIVE)  
 
         menu = gtk.Menu()
