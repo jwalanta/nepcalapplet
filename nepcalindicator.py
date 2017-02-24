@@ -5,6 +5,7 @@ import datetime
 import gtk
 import appindicator
 import os
+import time
 
 ### BEGIN LICENSE
 # Copyright (C) 2011 Shritesh Bhattarai shriteshb@gmail.com
@@ -310,6 +311,8 @@ def eng2nepnum(n):
 
 def contents_func():    
     converter = NepaliDateConverter()
+    os.environ["TZ"] = "Asia/Kathmandu"
+    time.tzset()
     now = datetime.datetime.now()
     (y,m,d)= converter.ad2bs((now.year, now.month, now.day))
     
